@@ -17,9 +17,9 @@
 .light {
     --text-color: black;
     --bg-url: url(assets/bg-mobile-light.jpg);
-    --border-color: rgba(0, 0, 0, 0.5);
+    --border-color: rgba(0, 0, 0, 0.205);
     --bg-color: rgba(0, 0, 0, 0.05);
-    --bg-color-hover: rgba(49, 46, 46, 1);
+    --bg-color-hover: rgba(255, 255, 255, 0.02);
     --socials-bg-color: rgba(0, 0, 0, 0.1);
     --switch-bg-url: url(assets/sun.svg);
 }
@@ -76,6 +76,19 @@ body {
     transform: translateY(-50%);
     top: 50%;
     left: 0;
+    animation: slide-back 0.2s;
+}
+
+.light #switch button {
+    animation: slide-go 0.2s forwards;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--border-color);
+}
+
+.light #switch button:hover {
+    outline: 8px solid var(--border-color);
 }
 
 #switch span {
@@ -85,11 +98,6 @@ body {
     background: var(--bg-color);
     border: 1px solid var(--border-color);
     border-radius: 9999px;
-}
-
-.light #switch button {
-    right: 0;
-    left: initial;
 }
 
 ul {
@@ -116,7 +124,6 @@ ul li a {
 }
 
 ul li a:hover {
-    color: white;
     background: var(--bg-color-hover);
     border: 1.5px solid var(--text-color);
 }
@@ -152,5 +159,23 @@ footer {
     }
     .light {
         --bg-url: url(assets/bg-desktop-light.jpg);
+    }
+}
+
+@keyframes slide-go {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
     }
 }
